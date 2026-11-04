@@ -10,14 +10,14 @@
   <main>
     <h1>おもちさん OTA staging</h1>
     <p>このサイトは署名済みESP32 OTAテスト用の一時配信先です。</p>
-    <h2>テスト候補 1000.0.0</h2>
+    <h2>OTA更新候補 1000.0.1</h2>
     <ul>
       <li><a href="manifest.json">署名付きmanifest</a></li>
       <li><a href="muse-gadget.bin">ファームウェアイメージ</a></li>
       <li><a href="SHA256SUMS">SHA-256チェックサム</a></li>
     </ul>
     <p>対象: ai-fortune-ideaspark / ESP32 Rev 1.1以上 / 16 MB Flash</p>
-    <p>manifest署名とESP-IDF Secure Boot V1互換イメージ署名、SHA-256を独立検証済みです。物理ボードでの初回書き込み、Health gate、OTA更新は未検証です。</p>
+    <p>manifest署名、ESP-IDF Secure Boot V1互換イメージ署名、SHA-256は独立検証済みです。初回bootstrapは1000.0.0です。物理ボードのHealth gate通過、OTA更新、rollbackは未検証です。</p>
     <p>ファイルはURLを知る人が誰でも取得できます。秘密情報や個人情報は置かないでください。</p>
   </main>
 </body>
