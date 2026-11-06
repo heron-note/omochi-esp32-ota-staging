@@ -10,10 +10,9 @@ Public static host for **signed OTA test artifacts only**. The source repository
 - Image: [muse-gadget.bin](https://heron-note.github.io/omochi-esp32-ota-staging/muse-gadget.bin)
 - SHA-256: `0b91722b5718597815765cb94b0954b68017d4ccc406d37389fe3c46395e58e7`
 - Image size: 1,638,388 bytes (OTA slot capacity: 2 MiB)
-- Signatures: manifest ECDSA P-256/SHA-256 and ESP-IDF Secure Boot V1-compatible ECDSA P-256 image signature independently verified.
-- The image version descriptor, board profile, minimum chip revision 1.1, image size, SHA-256, and manifest schema were independently checked.
+- Manifest ECDSA P-256/SHA-256 signature, ESP-IDF Secure Boot V1-compatible ECDSA P-256 image signature, schema, embedded version, profile, chip revision, size, and hash were independently verified.
 
-The device's previously shared heartbeat after USB installation showed `ws=up` continuously for more than 230 seconds. The actual OTA request and update have **not yet been run**. Once requested from Muse using `device.ota` with no parameters, the expected verification is download and signature/hash validation, automatic reboot, running version `1000.0.3`, and post-boot health-gate success. OTA rollback has not yet been demonstrated.
+The USB-installed `1000.0.2` device has been observed with `ws=up` for more than 230 seconds. The firmware advertises and handles the no-parameter `device.ota` Noise command, but a Muse-side caller, UI, or workflow to invoke that command has not been implemented or verified. Therefore the device has **not** been instructed to update, and the OTA install, post-boot health gate, and rollback remain untested. Typing the literal text `device.ota` into Muse chat must not be assumed to invoke it.
 
 ## Publication contract
 

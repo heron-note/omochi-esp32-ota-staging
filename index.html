@@ -16,9 +16,9 @@
       <li><a href="muse-gadget.bin">ファームウェアイメージ</a></li>
       <li><a href="SHA256SUMS">SHA-256チェックサム</a></li>
     </ul>
-    <p>対象: ai-fortune-ideaspark / classic ESP32 Rev 1.1以上 / 16 MB Flash。USBで導入した1000.0.2からのOTA試験用です。</p>
-    <p>manifest署名、ESP-IDF Secure Boot V1互換イメージ署名、SHA-256、version、revision、サイズは独立検証済みです。実機のOTA要求・書換え・再起動後health gateはこれから確認します。rollbackは未検証です。</p>
-    <p>OTA要求はMuse経由でdevice.otaを引数なしで呼び出します。手動RESETはOTA開始操作ではありません。</p>
+    <p>対象: ai-fortune-ideaspark / classic ESP32 Rev 1.1以上 / 16 MB Flash。USB導入済み1000.0.2からのOTA試験候補です。</p>
+    <p>manifest署名、image署名、schema、version、revision、size、SHA-256は独立検証済みです。</p>
+    <p>現在のESP32ファームはdevice.ota commandの登録・処理を備えていますが、Muse側からこのcommandを呼び出すUI／workflowは未実装または未確認です。実機へOTA要求はまだ送っておらず、OTA更新、health gate、rollbackは未検証です。Muse chatに「device.ota」と入力するだけで実行されるとは限りません。</p>
     <p>秘密情報や個人情報は置かないでください。</p>
   </main>
 </body>
