@@ -2,16 +2,18 @@
 
 Public static host for **signed OTA test artifacts only**. The source repository remains private. Everything under this Pages site is publicly downloadable.
 
-## Current OTA candidate
+## Current OTA test candidate
 
-- Firmware: `1000.0.1` (`ai-fortune-ideaspark`, classic ESP32 Rev 1.1+, 16 MB Flash)
+- Firmware: `1000.0.3` (`ai-fortune-ideaspark`, classic ESP32 Rev 1.1+, 16 MB Flash)
+- Intended starting firmware: USB-installed `1000.0.2`
 - Manifest: [manifest.json](https://heron-note.github.io/omochi-esp32-ota-staging/manifest.json)
 - Image: [muse-gadget.bin](https://heron-note.github.io/omochi-esp32-ota-staging/muse-gadget.bin)
-- SHA-256: `7678e15167113a5473c38273b008f73d1e7d7f82b4527b6a60347e8a271a6406`
+- SHA-256: `0b91722b5718597815765cb94b0954b68017d4ccc406d37389fe3c46395e58e7`
 - Image size: 1,638,388 bytes (OTA slot capacity: 2 MiB)
 - Signatures: manifest ECDSA P-256/SHA-256 and ESP-IDF Secure Boot V1-compatible ECDSA P-256 image signature independently verified.
+- The image version descriptor, board profile, minimum chip revision 1.1, image size, SHA-256, and manifest schema were independently checked.
 
-The initial serial bootstrap is `1000.0.0`; it is intentionally older than this staging OTA candidate. The package and instructions for that bootstrap are delivered separately. This candidate has **not** been confirmed on physical hardware: serial bootstrap, link health gate, OTA installation, and rollback remain to be tested on the actual board.
+The device's previously shared heartbeat after USB installation showed `ws=up` continuously for more than 230 seconds. The actual OTA request and update have **not yet been run**. Once requested from Muse using `device.ota` with no parameters, the expected verification is download and signature/hash validation, automatic reboot, running version `1000.0.3`, and post-boot health-gate success. OTA rollback has not yet been demonstrated.
 
 ## Publication contract
 
