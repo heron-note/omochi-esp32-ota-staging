@@ -10,9 +10,9 @@ Public static host for **signed OTA test artifacts only**. The source repository
 - Image: [muse-gadget.bin](https://heron-note.github.io/omochi-esp32-ota-staging/muse-gadget.bin)
 - SHA-256: `0b91722b5718597815765cb94b0954b68017d4ccc406d37389fe3c46395e58e7`
 - Image size: 1,638,388 bytes (OTA slot capacity: 2 MiB)
-- Manifest ECDSA P-256/SHA-256 signature, ESP-IDF Secure Boot V1-compatible ECDSA P-256 image signature, schema, embedded version, profile, chip revision, size, and hash were independently verified.
+- Manifest signature, ESP-IDF Secure Boot V1-compatible image signature, schema, embedded version, profile, chip revision, size, and hash were independently verified.
 
-The USB-installed `1000.0.2` device has been observed with `ws=up` for more than 230 seconds. The firmware advertises and handles the no-parameter `device.ota` Noise command, but a Muse-side caller, UI, or workflow to invoke that command has not been implemented or verified. Therefore the device has **not** been instructed to update, and the OTA install, post-boot health gate, and rollback remain untested. Typing the literal text `device.ota` into Muse chat must not be assumed to invoke it.
+The USB-installed `1000.0.2` device has been observed with `ws=up` for more than 230 seconds. When OTA is enabled, the ESP32 firmware advertises `device.ota` in its dynamic `commands_v2` registration and has a `link.invoke` handler that starts OTA. A separate custom Muse-side integration may not be needed. However, actual command invocation from the user's Muse interface has not been tested. OTA has not started, and post-boot health gate and rollback remain untested. Do not assume that typing the literal text `device.ota` invokes the registered command.
 
 ## Publication contract
 

@@ -18,7 +18,7 @@
     </ul>
     <p>対象: ai-fortune-ideaspark / classic ESP32 Rev 1.1以上 / 16 MB Flash。USB導入済み1000.0.2からのOTA試験候補です。</p>
     <p>manifest署名、image署名、schema、version、revision、size、SHA-256は独立検証済みです。</p>
-    <p>現在のESP32ファームはdevice.ota commandの登録・処理を備えていますが、Muse側からこのcommandを呼び出すUI／workflowは未実装または未確認です。実機へOTA要求はまだ送っておらず、OTA更新、health gate、rollbackは未検証です。Muse chatに「device.ota」と入力するだけで実行されるとは限りません。</p>
+    <p>OTA有効時、ESP32はdevice.otaを動的command登録し、link.invoke handlerも持ちます。Muse画面から実際に呼べるかは未確認で、実機OTA要求はまだ送っていません。まず非破壊のdevice.health呼出しで確認し、OTA、health gate、rollbackの試験へ進みます。</p>
     <p>秘密情報や個人情報は置かないでください。</p>
   </main>
 </body>
